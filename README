@@ -1,4 +1,4 @@
-# $Id: README,v 1.1 1998/06/09 01:00:42 daniel Exp daniel $
+# $Id: README,v 1.2 1999/07/31 22:14:33 daniel Exp $
 
 In order to install and use this package you will need Perl version
 5.004 or better, mod_perl and Authen::Radius. Installation as usual:
@@ -8,7 +8,7 @@ In order to install and use this package you will need Perl version
    make test
    make install
 
-Copyright 1998, Daniel <daniel-authenradius@electricrain.com>
+Copyright 1998,1999, Daniel Sully <daniel-cpan-authenradius@electricrain.com>
 
 The Apache::AuthenRadius module is free software; you can redistribute 
 it and/or modify it under the same terms as Perl itself.

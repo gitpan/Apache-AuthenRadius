@@ -1,6 +1,6 @@
 package Apache::AuthenRadius;
 
-# $Id: AuthenRadius.pm,v 1.1 1998/06/08 22:10:10 daniel Exp $
+# $Id: AuthenRadius.pm,v 1.2 1999/07/31 22:14:23 daniel Exp $
 
 use strict;
 use Apache ();
@@ -8,13 +8,16 @@ use Apache::Constants qw(OK AUTH_REQUIRED DECLINED SERVER_ERROR);
 use Authen::Radius;
 use vars qw($VERSION);
 
-$VERSION = '0.2';
+$VERSION = '0.3';
 
 sub handler {
-    	my $r = shift;
+	my $r = shift;
 	
 	# Continue only if the first request.
 	return OK unless $r->is_initial_req;
+
+	my $reqs_arr = $r->requires;
+	return OK unless $reqs_arr;
 
 	# Grab the password, or return if HTTP_UNAUTHORIZED
 	my($res,$pass) = $r->get_basic_auth_pw;
@@ -49,8 +52,7 @@ sub handler {
 
 	# Create the radius connection.
 	my $radius = Authen::Radius->new(
-		Host => $host,
-		Port => $port,
+		Host => "$host:$port",
 		Secret => $secret,
 		TimeOut => $timeout
 	);
@@ -159,7 +161,7 @@ mod_perl by Doug MacEachern <dougm@osf.org>
 Authen::Radius by Carl Declerck <carl@miskatonic.inbe.net>
 
 =item *
-Apache::AuthenRadius by Daniel <daniel-authenradius@electricrain.com>
+Apache::AuthenRadius by Daniel Sully <daniel-cpan-authenradius@electricrain.com>
 
 =head1 COPYRIGHT
 
