@@ -1,0 +1,10 @@
+# $Id: Changes,v 1.1 1998/06/09 01:01:16 daniel Exp daniel $
+
+Revision history for Perl extension Apache::AuthenRadius.
+
+0.02  Mon Jun 8 15:10:31 1998
+	- Added documentation, packaged up.
+
+0.01  Mon Jun 8 14:11:38 1998
+	- original version; created by h2xs 1.18
+
